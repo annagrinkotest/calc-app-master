@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
         currentVal = target.innerHTML;
         lastValClick = target.innerHTML;
       }
+      else if (target.innerHTML === ".") {
+        if (lastValClick !== ".") {
+          document.querySelector(".app-display").textContent += target.innerHTML;
+          currentVal += target.innerHTML;
+          lastValClick = target.innerHTML;
+        }
+      }
       else if (target.innerHTML === "=") {
         currentVal = Math.round(eval(currentVal) * 1000) / 1000;
         document.querySelector(".app-display").textContent = currentVal;
